@@ -10,7 +10,7 @@ L.Control.Geocoder.Nominatim = L.Class.extend({
     },
 
     geocode: function(query, cb, context) {
-        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'search/', L.extend({
+        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'search?', L.extend({
             q: query,
             limit: 5,
             format: 'json'
@@ -32,7 +32,7 @@ L.Control.Geocoder.Nominatim = L.Class.extend({
     },
 
     reverse: function(location, scale, cb, context) {
-        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'reverse/', L.extend({
+        L.Control.Geocoder.jsonp(this.options.serviceUrl + 'reverse?', L.extend({
             lat: location.lat,
             lon: location.lng,
             zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
